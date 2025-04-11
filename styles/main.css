@@ -534,6 +534,7 @@ body.dark-mode #henro .container {
                 width: 100%;
                 padding: 3rem 0;
                 display: flex;
+                justify-content: center;
                 align-items: center;
                 gap: 20px;
                 a{
@@ -548,7 +549,7 @@ body.dark-mode #henro .container {
                 /* From Uiverse.io by adamgiebl */
                 .hire-btn{
                     color: white;
-                    background-color: #240046;
+                    background-color: #33185e;
                 }
                 .hire-btn:hover{
                     transform: scale(1.1);
@@ -559,9 +560,9 @@ body.dark-mode #henro .container {
                 }
                 .download-cv-btn:hover{
                     transform: scale(1.1);
-                    background-color: #240046;
+                    background-color: #33185e;
                     color: white;
-                    border: 1px solid #240046;
+                    border: 1px solid #33185e;
                 }
                 .hirec-btn{
                     --green: white;
@@ -668,13 +669,12 @@ body.dark-mode #henro .container {
                     margin-bottom: .6rem;
                     .skill-loader{
                         width: 100%;
-                        height: 20px;
+                        height: 13px;
                         border-radius: 20px;
                         background-color: white;
-                        border: .5px solid #391574;
                         
                         .skill-slider{
-                            height: 20px;
+                            height: 13px;
                             border-radius: 20px 0px 0px 20px;
                             background-color: #33185e;
                             animation-delay: calc(-0.5s * var(--i));
@@ -809,6 +809,14 @@ body.dark-mode #henro .container {
     #about{
         .inner-container{
             margin: 0 1rem;
+            .about-pic{
+                .btns{
+                    a{
+                        font-size: 14px;
+                        padding: 17px 19px;
+                    }
+                }
+            }
         }
     }
 }
