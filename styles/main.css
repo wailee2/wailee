@@ -248,7 +248,8 @@ body.dark-mode .indicator {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    background-color: var(--secondary-color-dark);
+    background-collor: var(--secondary-color-dark);
+    background-color: red;
     height: 60px;
     width: 300px;
     padding: 10px 20px;
@@ -393,7 +394,7 @@ body.dark-mode .nav-content a {
     margin-top: auto;
     opacity: 0;
     transition: opacity 0.3s ease;
-    width: 80%;
+    windth: 60%;
     max-width: 200px;
 }
 
@@ -424,7 +425,7 @@ body.dark-mode .close-nav {
         .banner{
             position: absolute;
             top: 40%;
-            left: 4rem;
+            left: 3.8rem;
             .banner-title{
                 text-align: left;
                 line-height: 55px;
@@ -482,7 +483,7 @@ body.dark-mode #henro .container {
 }
 
 #about{
-    padding-right: 5rem;
+    padding-right: 70px;
     backgrounnd-color: green;
     .container{
         background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/about-bg-02.jpg');
@@ -539,13 +540,6 @@ body.dark-mode #henro .container {
         .container{
             padding: 30px 70px 30px 30px;
         }
-        .banner{
-            paddinng-bottom: 3rem;
-            backgrnound-color: red;
-        }
-    }
-    .banner{
-        left: 3rem;
     }
     .prev-next{
         bottom: 1.9rem;
