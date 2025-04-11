@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Full-Screen Website</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+        <img src="./images/logo.svg" alt="logo">
+    </a>
+    
+    <!-- Dark mode toggle <div class="side-nav"></div>-->
+    <label class="label">
+        <div class="toggle">
+            <input class="toggle-state" type="checkbox" name="check" value="check" id="darkModeToggle">
+            <div class="indicator"></div>
+        </div>
+    </label>
+    
+    <!-- Menu toggle -->
+    <div class="nav-button menu-toggle" >
+        <img src="./iconx/hamburger.svg" alt=""id="menuToggle">
+    </div>
+    
+    
+    <!-- Navigation overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <div class="nav-content">
+            <a href="#" data-section="hero">Home</a>
+            <a href="#" data-section="about">About</a>
+            <a href="#" data-section="contact">Contact</a>
+            <button class="close-nav" id="closeNav">Close</button>
+        </div>
+    </div>
+    
+    <!-- Sections -->
+    <section id="hero" class="active">
+        <div class="container">
+            <div class="inner-container">
+                <div class="logo-back"></div>
+                <div class="banner">
+                    <h1 class="banner-title">Hello, I'm <span>Feranmi</span></h1>
+                    <p class="banner-desc">Web Developer | UI/UX Specialist</p>
+                    <a href="mailto:feranmiayeni37@gmail.com">GET IN TOUCH</a>
+                    <ul class="social-list">
+                        <li><a href="tel:+234 811 968 4024"><i class="fas fa-phone"></i></a></li>
+                        <li><a href="https://wa.me/2348119684024"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="http://tiktok.com/@junos.sport.hub"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/junos.sport.hub?igsh=MTdrbHd6dGxtbGxyNQ=="><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="http://tiktok.com/@junos.sport.hub"><i class="fab fa-telegram"></i></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100091998245829"><i class="fab fa-facebook"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="inner-container">
+            <div class="logo-back"></div>
+            <div class="about-pic sect">
+                <img src="images/hero-bg-09.jpg" alt="">
+            </div>]
+            <div class="about-pic sect">
+                <img src="images/hero-bg-09.jpg" alt="">
+            </div>
+            <div>yooo</div>
+            
+        </div>
+        
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team. We'd love to hear from you and discuss how we can work together.</p>
+        </div>
+    </section>
+    
+    <!-- Previous/Next buttons -->
+    <div class="prev-next">
+        <div class="prev-next-back">
+            <button id="prevBtn">
+                <img src="iconx/hamburger.svg" alt="">
+            </button>
+            <button id="nextBtn">
+                <img src="iconx/hamburger.svg" alt="">
+            </button>
+        </div>
+        
+    </div>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>
