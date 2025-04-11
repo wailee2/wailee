@@ -3,6 +3,7 @@
     --dark-color: #343a40;
     --secondary-color-light: #f8f9fa;
     --secondary-color-dark:#171521;
+    --vh: 1vh; /* Fallback */
 
     --color-contact: #4c4d51;
 }
@@ -17,11 +18,13 @@
 body {
     width: 100vw;
     height: 100vh;
-    overflsow: hidden;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: auto; /* Changed from hidden to auto */
     font-family: Arial, sans-serif;
     position: relative;
     background-color: white;
     color: #333;
+    overscroll-behavior-y: auto;
 }
 
 body.dark-mode {
@@ -43,6 +46,9 @@ section {
     opacity: 0;
     transition: opacity 1s ease;
     pointer-events: none;
+    min-height: 100%; /* Ensure sections take full height */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 section.active {
@@ -300,6 +306,7 @@ body.dark-mode .nav-button {
     height: 100%;
     z-index: 999;
     transition: right 0.3s ease;
+    overscroll-behavior: contain; /* Only prevent overscroll in nav */
 }
 
 .nav-overlay::before {
@@ -333,6 +340,9 @@ body.dark-mode .nav-button {
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
+    padding-bottom: 60px;
+    overflow-y: auto;
+    max-height: 100%;
 }
 
 body.dark-mode .nav-content {
@@ -369,7 +379,7 @@ body.dark-mode .nav-content a {
 }
 
 .close-nav {
-    position: absolute;
+    position: fixed;
     bottom: 2rem;
     left: 2rem;
     right: 2rem;
@@ -633,38 +643,32 @@ body.dark-mode #henro .container {
 
 
 :root {
-    --vh: 1vh; /* Fallback */
+    
   }
   
   body {
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-    overflow: auto; /* Changed from hidden to auto */
+    
   }
   
   /* Remove overscroll behavior to allow pull-to-refresh */
   body {
-    overscroll-behavior-y: auto;
+    
   }
   
   section {
-    min-height: 100%; /* Ensure sections take full height */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    
   }
   
   /* Navigation overlay improvements */
   .nav-overlay {
-    overscroll-behavior: contain; /* Only prevent overscroll in nav */
+    
   }
   
   .nav-overlay .nav-content {
-    padding-bottom: 60px;
-    overflow-y: auto;
-    max-height: 100%;
+    
   }
   
-  .close-nav {
+  .closne-nav {
     position: fixed;
     bottom: env(safe-area-inset-bottom, 20px);
     left: 50%;
@@ -674,17 +678,17 @@ body.dark-mode #henro .container {
   }
   
   /* Mobile Chrome address bar handling */
-  @media (max-height: 700px) {
+@media (max-height: 700px) {
     .nav-overlay .nav-content {
       padding-bottom: 80px;
     }
-  }
+}
   
-  @supports (height: 100dvh) {
+@supports (height: 100dvh) {
     body {
       height: 100dvh;
     }
-  }
+}
 
 
 
