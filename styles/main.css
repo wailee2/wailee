@@ -625,3 +625,69 @@ body.dark-mode #henro .container {
         }
     }
 }
+
+
+
+
+
+
+
+/* Slide Transitions for Mobile */
+@media (max-width: 768px) {
+    section {
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .slide-out-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    
+    .slide-out-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    
+    .slide-in-right {
+      transform: translateX(100%);
+      animation: slideInRight 0.5s forwards;
+    }
+    
+    .slide-in-left {
+      transform: translateX(-100%);
+      animation: slideInLeft 0.5s forwards;
+    }
+    
+    @keyframes slideInRight {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideInLeft {
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+  
+  /* Fade Transitions for Desktop */
+  @media (min-width: 769px) {
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+  }
