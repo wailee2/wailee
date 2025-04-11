@@ -387,7 +387,8 @@ body.dark-mode .nav-content a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #333;
+    background-color: red;
+    backgroubnd-color: #333;
     color: white;
     margin-top: auto;
     opacity: 0;
