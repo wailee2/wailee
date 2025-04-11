@@ -392,6 +392,7 @@ body.dark-mode .nav-content a {
     margin-top: auto;
     opacity: 0;
     transition: opacity 0.3s ease;
+    max-width: 100px;
 }
 
 .nav-overlay.active .close-nav {
