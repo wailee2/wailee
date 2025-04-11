@@ -17,7 +17,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflsow: hidden;
     font-family: Arial, sans-serif;
     position: relative;
     background-color: white;
@@ -632,62 +632,60 @@ body.dark-mode #henro .container {
 
 
 
-/* Slide Transitions for Mobile */
-@media (max-width: 768px) {
-    section {
-      transition: transform 0.5s ease, opacity 0.5s ease;
-    }
-    
-    .slide-out-left {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    
-    .slide-out-right {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    
-    .slide-in-right {
-      transform: translateX(100%);
-      animation: slideInRight 0.5s forwards;
-    }
-    
-    .slide-in-left {
-      transform: translateX(-100%);
-      animation: slideInLeft 0.5s forwards;
-    }
-    
-    @keyframes slideInRight {
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-    
-    @keyframes slideInLeft {
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
+:root {
+    --vh: 1vh; /* Fallback */
+  }
+  
+  body {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: auto; /* Changed from hidden to auto */
+  }
+  
+  /* Remove overscroll behavior to allow pull-to-refresh */
+  body {
+    overscroll-behavior-y: auto;
+  }
+  
+  section {
+    min-height: 100%; /* Ensure sections take full height */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Navigation overlay improvements */
+  .nav-overlay {
+    overscroll-behavior: contain; /* Only prevent overscroll in nav */
+  }
+  
+  .nav-overlay .nav-content {
+    padding-bottom: 60px;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+  
+  .close-nav {
+    position: fixed;
+    bottom: env(safe-area-inset-bottom, 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 200px;
+  }
+  
+  /* Mobile Chrome address bar handling */
+  @media (max-height: 700px) {
+    .nav-overlay .nav-content {
+      padding-bottom: 80px;
     }
   }
   
-  /* Fade Transitions for Desktop */
-  @media (min-width: 769px) {
-    .fade-out {
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-    
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 0.5s forwards;
-    }
-    
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+  @supports (height: 100dvh) {
+    body {
+      height: 100dvh;
     }
   }
+
+
+
+

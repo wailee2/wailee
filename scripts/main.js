@@ -14,8 +14,7 @@ const elements = {
   const state = {
     currentSectionIndex: 0,
     sectionIds: Array.from(elements.sections).map(section => section.id),
-    isNavOpen: false,
-    isMobile: window.innerWidth <= 768 // Detect mobile devices
+    isNavOpen: false
   };
   
   // Initialize Application
@@ -23,52 +22,6 @@ const elements = {
     initializeDarkMode();
     initializeCurrentSection();
     setupEventListeners();
-    window.addEventListener('resize', handleResize);
-  }
-  
-    // ... (keep previous code until the handleResize function)
-
-    function handleResize() {
-        state.isMobile = window.innerWidth <= 768;
-        setViewportHeight();
-    }
-    
-    // Fix mobile viewport height without blocking pull-to-refresh
-    function setViewportHeight() {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-    
-    // Initialize Application
-    function init() {
-        setViewportHeight(); // Set initial viewport height
-        initializeDarkMode();
-        initializeCurrentSection();
-        setupEventListeners();
-        window.addEventListener('resize', handleResize);
-        
-        // Re-enable pull-to-refresh by removing overscroll behavior
-        document.body.style.overscrollBehaviorY = 'auto';
-    }
-    
-    // ... (keep the rest of the previous code)
-  
-  // Transition Functions
-  function getTransitionClass(direction) {
-    return state.isMobile ? 
-      (direction === 'next' ? 'slide-out-left' : 'slide-out-right') :
-      (direction === 'next' ? 'fade-out' : 'fade-out');
-  }
-  
-  function applyTransition(section, direction, action) {
-    const baseClass = direction === 'next' ? 'slide' : 'fade';
-    const transitionClass = `${baseClass}-${action}-${direction}`;
-    
-    if (action === 'start') {
-      section.classList.add(transitionClass);
-    } else {
-      section.classList.remove(transitionClass);
-    }
   }
   
   // Dark Mode Functions
@@ -98,34 +51,13 @@ const elements = {
     }
   }
   
-  function navigateToIndex(newIndex) {
-    const direction = newIndex > state.currentSectionIndex ? 'next' : 'prev';
+  function navigateToIndex(index) {
+    if (index < 0) index = state.sectionIds.length - 1;
+    if (index >= state.sectionIds.length) index = 0;
     
-    // Handle wrap-around
-    if (newIndex < 0) newIndex = state.sectionIds.length - 1;
-    if (newIndex >= state.sectionIds.length) newIndex = 0;
-    
-    const currentSection = elements.sections[state.currentSectionIndex];
-    const nextSection = elements.sections[newIndex];
-    
-    // Start transition
-    if (state.isMobile) {
-      currentSection.classList.add(direction === 'next' ? 'slide-out-left' : 'slide-out-right');
-      nextSection.classList.add(direction === 'next' ? 'slide-in-right' : 'slide-in-left');
-    } else {
-      currentSection.classList.add('fade-out');
-      nextSection.classList.add('fade-in');
-    }
-    
-    // After transition completes
-    setTimeout(() => {
-      currentSection.classList.remove('active', 'slide-out-left', 'slide-out-right', 'fade-out');
-      nextSection.classList.remove('slide-in-right', 'slide-in-left', 'fade-in');
-      nextSection.classList.add('active');
-      
-      state.currentSectionIndex = newIndex;
-      localStorage.setItem('currentSection', state.sectionIds[newIndex]);
-    }, 500); // Match this duration with your CSS transition time
+    state.currentSectionIndex = index;
+    updateVisibleSection();
+    localStorage.setItem('currentSection', state.sectionIds[index]);
   }
   
   function navigateToSection(sectionId) {
@@ -137,8 +69,13 @@ const elements = {
   
   function updateVisibleSection() {
     elements.sections.forEach((section, i) => {
-      section.classList.toggle('active', i === state.currentSectionIndex);
-      section.classList.toggle('prev', i !== state.currentSectionIndex);
+      if (i === state.currentSectionIndex) {
+        section.classList.remove('prev');
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+        section.classList.add('prev');
+      }
     });
   }
   
@@ -146,15 +83,11 @@ const elements = {
   function toggleNavigation() {
     state.isNavOpen = !state.isNavOpen;
     elements.navOverlay.classList.toggle('active', state.isNavOpen);
-    
-    // Disable body scroll when nav is open
-    document.body.style.overflow = state.isNavOpen ? 'hidden' : '';
   }
   
   function closeNavigation() {
     state.isNavOpen = false;
     elements.navOverlay.classList.remove('active');
-    document.body.style.overflow = '';
   }
   
   function handleOutsideClick(e) {
@@ -180,12 +113,39 @@ const elements = {
     }
   }
   
-  function handleNavLinkClick(e) {
+    function handleNavLinkClick(e) {
     e.preventDefault();
     const sectionId = e.target.getAttribute('data-section');
     navigateToSection(sectionId);
     closeNavigation();
   }
+
+// ... (keep previous code until the handleResize function)
+
+    function handleResize() {
+        state.isMobile = window.innerWidth <= 768;
+        setViewportHeight();
+    }
+  
+  // Fix mobile viewport height without blocking pull-to-refresh
+  function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  
+  // Initialize Application
+  function init() {
+    setViewportHeight(); // Set initial viewport height
+    initializeDarkMode();
+    initializeCurrentSection();
+    setupEventListeners();
+    window.addEventListener('resize', handleResize);
+    
+    // Re-enable pull-to-refresh by removing overscroll behavior
+    document.body.style.overscrollBehaviorY = 'auto';
+  }
+  
+  // ... (keep the rest of the previous code)
   
   // Setup Event Listeners
   function setupEventListeners() {
