@@ -25,6 +25,8 @@ body {
     background-color: white;
     color: #333;
     overscroll-behavior-y: auto;
+    margin: 0;
+    padding: 0;
 }
 
 body.dark-mode {
@@ -238,7 +240,7 @@ body.dark-mode .indicator {
 .prev-next {
     position: fixed;
     right: 4.4rem;
-    bottom: 4.4rem;
+    bottom: 3.9rem;
     z-index: 500;
 }
 
@@ -381,19 +383,18 @@ body.dark-mode .nav-content a {
 .close-nav {
     position: fixed;
     bottom: 2rem;
-    left: 2rem;
     right: 2rem;
     padding: 0.8rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: red;
-    backgroubnd-color: #333;
+    background-color: #333;
     color: white;
     margin-top: auto;
     opacity: 0;
     transition: opacity 0.3s ease;
-    max-width: 100px;
+    width: 80%;
+    max-width: 200px;
 }
 
 .nav-overlay.active .close-nav {
@@ -409,7 +410,7 @@ body.dark-mode .close-nav {
 
 #hero{
     .container{
-        padding: 70px;
+        padding: 63px 70px;
         .inner-container{
             width: 100%;
             height: 100%;
@@ -429,7 +430,7 @@ body.dark-mode .close-nav {
                 line-height: 55px;
                 font-weight: 700;
                 font-size: 3.2rem;
-                margin-bottom: 1.6rem;
+                margin-bottom: 1.3rem;
                 span{
                     colonr: var(--secondary-color-dark);
                 }
@@ -439,7 +440,7 @@ body.dark-mode .close-nav {
                 color: var(--light-color);
                 font-size: 19px;
                 line-height: 24px;
-                margin-bottom: 2.5rem;
+                margin-bottom: 2.2rem;
                 max-width: 420px;
             }
             a{
@@ -538,6 +539,10 @@ body.dark-mode #henro .container {
         .container{
             padding: 30px 70px 30px 30px;
         }
+        .banner{
+            paddinng-bottom: 3rem;
+            backgrnound-color: red;
+        }
     }
     .banner{
         left: 3rem;
@@ -555,6 +560,7 @@ body.dark-mode #henro .container {
         .container{
             padding: 68px 0px 0px 0px;
             .banner{
+                top: 31%;
                 .banner-title{
                     text-align: left;
                     line-height: 55px;
@@ -621,7 +627,7 @@ body.dark-mode #henro .container {
                     text-align: left;
                     line-height: 55px;
                     font-weight: 700;
-                    font-size: 2.5rem;
+                    font-size: 2.rem;
                 }
             }
         }
@@ -638,37 +644,23 @@ body.dark-mode #henro .container {
     }
 }
 
+@mednia (max-width: 430px) {
+    #hero{
+        .banner{
+            .banner-title{
+                margin-bottom: 0rem;
+                background-color: red;
+            }
+            .banner-desc{
+                margin-bottom: 0rem;
+            }
+        }
+    }
+}
 
 
 
-
-
-
-:root {
-    
-  }
-  
-  body {
-    
-  }
-  
-  /* Remove overscroll behavior to allow pull-to-refresh */
-  body {
-    
-  }
-  
-  section {
-    
-  }
-  
-  /* Navigation overlay improvements */
-  .nav-overlay {
-    
-  }
-  
-  .nav-overlay .nav-content {
-    
-  }
+ 
   
   .closne-nav {
     position: fixed;
