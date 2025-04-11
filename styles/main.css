@@ -101,7 +101,7 @@ p {
 
 /* Logo */
 .logo{
-    position: absolute;
+    position: fixed;
     top: 1rem;
     left: 1rem;
     z-index: 500;
@@ -230,7 +230,7 @@ body.dark-mode .indicator {
 }
 
 .prev-next {
-    position: absolute;
+    position: fixed;
     right: 4.4rem;
     bottom: 4.4rem;
     z-index: 500;
