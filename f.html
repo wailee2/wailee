@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image - Lower 50%</title>
+    <style>
+        .half-bg {
+             /* Set your desired height */
+            position: relative;
+            background-color: #f5f5f5; /* Fallback color for upper half */
+        }
+        
+        .half-bg::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%; /* This makes it cover exactly the lower half */
+            background-image: url('https://example.com/your-image.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        /* Content styling - optional */
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 200px 20px; /* Adjust padding as needed */
+            color: #333;
+        }
+        .half-bg {
+            height: 100vh; /* Set the height of the container */
+            display: flex; 
+            background: linear-gradient(to bottom, #f5f5f5 50%, transparent 50%), url('./images/hero-bg-02.jpg') bottom/cover no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="half-bg">
+        <div class="content">
+            <h2>Your Content Here</h2>
+            <p>This content appears above the background image which only covers the lower 50% of the container.</p>
+        </div>
+    </div>
+</body>
+</html>
