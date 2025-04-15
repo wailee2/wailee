@@ -1,5 +1,5 @@
 // DOM Elements
-const elements = {
+  const elements = {
     darkModeToggle: document.getElementById('darkModeToggle'),
     menuToggle: document.getElementById('menuToggle'),
     navOverlay: document.getElementById('navOverlay'),
@@ -181,3 +181,42 @@ const elements = {
   
   // Start the application
   init();
+
+
+  // Array of quotes from films and anime
+  const quotes = [
+    { text: "With great power comes great responsibility.", source: "Spider-Man" },
+    { text: "It's over 9000!", source: "Dragon Ball Z" },
+    { text: "I am your father.", source: "Star Wars" },
+    { text: "To infinity and beyond!", source: "Toy Story" },
+    { text: "Just keep swimming.", source: "Finding Nemo" },
+    { text: "I am Groot.", source: "Guardians of the Galaxy" },
+    { text: "The truth is out there.", source: "The X-Files" },
+    { text: "Winter is coming.", source: "Game of Thrones" },
+    { text: "Live long and prosper.", source: "Star Trek" },
+    { text: "I see dead people.", source: "The Sixth Sense" },
+    { text: "I am inevitable.", source: "Avengers: Endgame" },
+    { text: "I'll be back.", source: "The Terminator" },
+    { text: "May the Force be with you.", source: "Star Wars" },
+    { text: "I am Groot.", source: "Guardians of the Galaxy" },
+    { text: "Believe it!", source: "Naruto" },
+    { text: "All men are not created equal.", source: "My Hero Academia" },
+    { text: "The one piece is real!", source: "One Piece" },
+    { text: "Reality is often disappointing.", source: "Avengers: Infinity War" },
+    { text: "I see now that the circumstances of one's birth are irrelevant. It is what you do with the gift of life that determines who you are.", source: "Pokémon: The First Movie" },
+    { text: "A true hero isn't measured by the size of his strength, but by the strength of his heart.", source: "Hercules" }
+
+    // ... (keep your other quotes here)
+];
+
+// Display random quote immediately (no waiting for DOMContentLoaded)
+const quoteElement = document.getElementById('random-quote');
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+quoteElement.innerHTML = `"${randomQuote.text}"<br><small>- ${randomQuote.source}</small>`;
+
+// Remove loading elements after animation completes
+setTimneout(() => {
+    document.querySelector('.initial-loader').remove();
+    document.querySelector('.loading-wrapper').remove();
+    document.body.style.overflow = 'auto';
+}, 5500);
