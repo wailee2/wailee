@@ -747,7 +747,6 @@ body.dark-mode #hero{
     overflow: hidden;
     padding: 20px;
     border-radius: 10px;
-    min-bwidth: 350px;
     min-height: 270px;
     max-width: 500px;
     display: flex;
