@@ -195,9 +195,14 @@ header .navbar{
     z-index: 9;
     height: 100%;
     padding: 30px 20px;
+    .logo{
+        display: flex;
+        flex-direction: row;
+    }
     img{
         transition: all 0.9s ease;
-        width: 48px;
+        width: 6rem;
+        display: none;
     }
 }
 body.dark-mode .navbar{
@@ -848,6 +853,16 @@ body.dark-mode footer{
         padding: 6px 20px;
         display: flex;
         justify-content: space-between;
+        .logo{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-decoration: none;
+            color: transparent;
+        }
+        img{
+            display: block;
+        }
     }
     .label {
         position: relative;
@@ -891,7 +906,7 @@ body.dark-mode footer{
         max-width: 90%;
     }
     header .navbar{
-        img{
+        svg{
             width: 45px;
         }
     }
